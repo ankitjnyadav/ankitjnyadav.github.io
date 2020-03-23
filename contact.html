@@ -89,7 +89,7 @@
 
 
                 <div class="col-lg-9">
-                    <form class="row contact_form" action="contact_process.php" method="" id="contactForm" novalidate="novalidate">
+                    <form class="row contact_form" method="post" id="contactForm" novalidate="novalidate">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -107,15 +107,24 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
+                            <script>
+                                var name = document.getElementById("name").value;
+                                var email = document.getElementById("email").value;
+                                var subject = document.getElementById("subject").value;
+                                var message = document.getElementById("message").value;
+                                var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+subject+'&body='+message+email
+                                document.getElementById("link").setAttribute("href",mailTo);
+                            </script>
                             <button name='send_msg' type="submit" value="submit" class="primary_btn" >
-                                <script>
+                                <script language="javascript" type="text/javascript">
                                     var name = document.getElementById("name").value;
                                     var email = document.getElementById("email").value;
                                     var subject = document.getElementById("subject").value;
                                     var message = document.getElementById("message").value;
-                                </script>
-                                <a href="mailto:ankitjnyadav@gmail.com?subject=${subject}&body=${message}${email}"></a>
-                                <span>Send Message</span>
+                                    var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+subject+'&body='+message+email
+                                    console.log(mailTo)
+                                    </script>
+                                    <a href="" onclick="location.href=this.href+'?key='+mailTo;return false;">Send Message</a>
                             </button>
                         </div>
                     </form>

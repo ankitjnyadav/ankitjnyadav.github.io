@@ -107,24 +107,21 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
+
                             <script>
+                                function makeHref(a,b,c,d) {
                                 var name = document.getElementById("name").value;
                                 var email = document.getElementById("email").value;
                                 var subject = document.getElementById("subject").value;
                                 var message = document.getElementById("message").value;
-                                var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+subject+'&body='+message+email
-                                document.getElementById("link").setAttribute("href",mailTo);
+                                //var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+subject+'&body='+message+email
+                                var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+c+'&body='+d+'From:'+b;
+                                document.getElementById('email_a').href=mailTo;
+                                alert('Mailing to: reach.ankitjnyadav@gmail.com \nSubject Line:'+c+'\nBody:'+d);
+                                }
                             </script>
-                            <button name='send_msg' type="submit" value="submit" class="primary_btn" >
-                                <script language="javascript" type="text/javascript">
-                                    var name = document.getElementById("name").value;
-                                    var email = document.getElementById("email").value;
-                                    var subject = document.getElementById("subject").value;
-                                    var message = document.getElementById("message").value;
-                                    var mailTo = 'mailto:ankitjnyadav@gmail.com?subject='+subject+'&body='+message+email
-                                    console.log(mailTo)
-                                    </script>
-                                    <a href="" onclick="location.href=this.href+'?key='+mailTo;return false;">Send Message</a>
+                            <button name='send_msg' type="submit" value="submit" class="primary_btn" onclick="makeHref(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('subject').value,document.getElementById('message').value)">
+                                <a id='email_a' href="">Send Message</a>
                             </button>
                         </div>
                     </form>
